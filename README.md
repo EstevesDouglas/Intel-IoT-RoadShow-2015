@@ -2,23 +2,26 @@
 
 This project was developed in the 2015 IoT RoadShow 2015 in São Paulo, Brazil.
 
-## Função de Envio de Dados para Myo
+## Data Transmission Function To The Myo
 
-Neste projeto utilzamos um macbook com o sistema operacional OSX El Capitan para enviar os dados para o Intel Edison através de troca de mensagens UDP.
-Para isto, baixamos o SDK do Myo em https://developer.thalmic.com/downloads e compilamos o projeto hello-myo.xcodeproj dentro da pasta samples do SDK.
+In this project we used a macbook with the operating system OSX El Capitan to send the data to the Intel Edison through UDP messaging.
+For this, we downloaded the SDK Myo in https://developer.thalmic.com/downloads and compile the ```hello-myo.xcodeproj``` project within the ```samples``` folder of the SDK.
 
-Neste exemplo modificamos o código do arquivo hello-myo.cpp na função print() da classe DataCollector. Nesta função temos acesso ao nome do gesto ativado 
-naquele momento no Myo. Com este dado em mão apenas formatamos uma mensagens UDP e enviamos pela rede.
+In this example we modify the code ```hello-myo.cpp``` file in the ```print ()``` function of the ```DataCollector``` class. In this role we have access to the name of the activated gesture at that moment in Myo. With this data in hand we formatted the UDP messages and sent over the network.
 
-No inicio do arquivo adicionamos o seguinte código, com a declaração de variáveis e inclusão de bibliotecas:
+The file add the following code beginning with the declaration of variables and inclusion of libraries:
+
+
 
 ```c++
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <unistd.h>
 
-#define SERVER "10.94.0.208"
+// here goes the ip address of the Intel Ediso
+#define SERVER "192.168.1.101"
 #define BUFLEN 1024
+/// here goes the port that are you using
 #define PORT 21567
 
 void die(char *s)
@@ -33,7 +36,7 @@ char buf[BUFLEN];
 char message[BUFLEN];
 ```
 
-Depois disso adicionamos código para descobrir o gesto detectado, formatar e enviar a mensagem para o código Python executando do outro lado no Intel Edison.
+After that we add the code to discover the gesture detected, format and send the message to the Python code running in the Intel Edison.
 
 ```c++
 if(poseString == "fist")
@@ -62,4 +65,4 @@ else if(poseString == "fingersSpread")
 // there is more code in the .cpp file
 ```
 
-Logo basta substituir o código da função print() pelo código no arquivo MyoSdkSenderFunction.cpp.
+Just simply replace the code in ```print()``` function by the code in ```MyoSdkSenderFunction.cpp``` file.

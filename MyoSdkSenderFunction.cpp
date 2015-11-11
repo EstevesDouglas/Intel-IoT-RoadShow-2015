@@ -1,3 +1,24 @@
+#include <arpa/inet.h>
+#include <sys/socket.h>
+#include <unistd.h>
+
+// here goes the ip address of the Intel Ediso
+#define SERVER "192.168.1.101"
+#define BUFLEN 1024
+/// here goes the port that are you using
+#define PORT 21567
+
+void die(char *s)
+{
+    perror(s);
+    exit(1);
+}
+
+struct sockaddr_in si_other;
+int s, i, slen=sizeof(si_other);
+char buf[BUFLEN];
+char message[BUFLEN];
+
 void print()
 {
     // Clear the current line
