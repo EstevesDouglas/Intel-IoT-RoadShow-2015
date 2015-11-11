@@ -1,4 +1,6 @@
-# Intel-IoT-RoadShow-2015
+# Intel IoT RoadShow 2015
+
+This project was developed in the 2015 IoT RoadShow 2015 in São Paulo, Brazil.
 
 ## Função de Envio de Dados para Myo
 
