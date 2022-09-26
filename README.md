@@ -2,6 +2,10 @@
 
 This project was developed in the 2015 IoT RoadShow 2015 in São Paulo, Brazil.
 
+
+More information [Rover IoT | Intel IoT Road Show 2015](https://www.instructables.com/Intro-Rover-IoT/)
+
+
 ## Data Transmission Function To The Myo
 
 In this project we used a macbook with the operating system OSX El Capitan to send the data to the Intel Edison through UDP messaging.
